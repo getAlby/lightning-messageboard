@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lightning Messageboard Demo</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+        color: #333;
+      }
+      h1 {
+        color: #1a1a1a;
+        margin-bottom: 1rem;
+      }
+      .container {
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+      .note {
+        background-color: #fffbeb;
+        border-left: 4px solid #f59e0b;
+        padding: 10px 15px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+      }
+      .code-block {
+        background-color: #f4f4f8;
+        padding: 15px;
+        border-radius: 4px;
+        word-wrap: break-word;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
+          monospace;
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+      details {
+        margin-bottom: 20px;
+      }
+      summary {
+        cursor: pointer;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border-radius: 4px;
+        font-weight: bold;
+      }
+      details div {
+        padding: 10px;
+        border: 1px solid #f0f0f0;
+        border-top: none;
+        border-radius: 0 0 4px 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lightning Messageboard Demo</h1>
+
+    <div class="note">
+      <p>
+        You need to provide a NWC connection secret for a <b>sub-wallet</b> with
+        receive-only permissions(make_invoice, lookup_invoice,
+        list_transactions) to receive payments.
+      </p>
+      <p>Current connection secret:</p>
+      <div class="code-block" id="current-nwc-url"></div>
+      <button id="set-nwc-url" class="demo-button">
+        Set Connection Secret
+      </button>
+    </div>
+
+    <div class="container">
+      <h2>Basic Usage</h2>
+      <p>The messageboard with default settings:</p>
+
+      <!-- Basic usage -->
+      <lightning-messageboard></lightning-messageboard>
+    </div>
+
+    <div class="container">
+      <h2>Integration Code</h2>
+      <p>
+        Here's how to integrate the Lightning Messageboard into your website:
+      </p>
+
+      <p>1. Include the script:</p>
+      <div class="code-block">
+        &lt;script type="module"
+        src="https://esm.sh/@getalby/lightning-messageboard"&gt;&lt;/script&gt;
+      </div>
+      <p>2. Use the web component</p>
+      <div class="code-block">
+        &lt;lightning-messageboard nwc-url="nostr+walletconnect://..."
+        theme='{"primary-color":"#0066cc"}'&gt;&lt;/lightning-messageboard&gt;
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>Required Attributes</h2>
+      <details>
+        <summary>nwc-url</summary>
+        <div>
+          <p>NWC connection secret for Lightning Network payments.</p>
+          <p>
+            <strong>Example:</strong>
+            <code>nwc-url="nostr+walletconnect://..."</code>
+          </p>
+        </div>
+      </details>
+
+      <h2>Optional Attributes</h2>
+
+      <details>
+        <summary>theme</summary>
+        <div>
+          <p>JSON string with theme colors.</p>
+          <p>
+            <strong>Example:</strong>
+            <code
+              >theme='{"primary-color":"#6200ea","background-color":"#0091ea"}'</code
+            >
+          </p>
+        </div>
+      </details>
+    </div>
+
+    <div class="container">
+      <h2>Classic Bitcoin Theme</h2>
+
+      <!-- Classic Bitcoin theme -->
+      <lightning-messageboard
+        id="bitcoin-board"
+        theme='{"primary-color":"#f7931a","background-color":"#ffffff", "border-color": "#e0e0e0", "text-muted-color": "#666666", "text-color":"#333333", "button-text-color": "#ffffff"}'
+      >
+      </lightning-messageboard>
+    </div>
+
+    <div class="container">
+      <h2>Nostr Theme</h2>
+
+      <!-- Purple Sunset theme -->
+      <lightning-messageboard
+        id="sunset-board"
+        theme='{"primary-color":"#8e44ad","background-color":"#f9f0ff", "border-color": "#d6a4ff", "text-muted-color": "#a569bd", "text-color":"#4a235a", "button-text-color": "#ffffff"}'
+      >
+      </lightning-messageboard>
+    </div>
+
+    <div class="container">
+      <h2>Minimal Black & White Theme</h2>
+
+      <!-- Minimal B&W theme -->
+      <lightning-messageboard
+        id="minimal-board"
+        theme='{"primary-color":"#000000","background-color":"#ffffff", "border-color": "#aaaaaa", "text-muted-color": "#666666", "text-color":"#000000", "button-text-color": "#ffffff", "border-radius": "0px"}'
+      >
+      </lightning-messageboard>
+    </div>
+
+    <!-- Load the Lightning Messageboard component -->
+    <script type="module" src="./dist/index.js"></script>
+
+    <style>
+      .demo-button {
+        background-color: #0366d6;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 16px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+      .demo-button:hover {
+        background-color: #0255b3;
+      }
+    </style>
+
+    <script type="module">
+      // NWC Connection Management
+      document.addEventListener("DOMContentLoaded", () => {
+        const NWC_STORAGE_KEY = "lightning-messageboard-nwc-url";
+
+        // Function to set NWC URL on all components
+        function setNwcUrlOnComponents(url) {
+          if (!url) return;
+
+          const messageboards = document.querySelectorAll(
+            "lightning-messageboard"
+          );
+          messageboards.forEach((board) => {
+            board.setAttribute("nwc-url", url);
+          });
+        }
+
+        const DEFAULT_NWC_URL =
+          "nostr+walletconnect://cd16b040368c390e2bfa65b4d44847c33f527ca882d1b8827658ccbeff677c21?relay=wss://relay.getalby.com/v1&secret=f48df5e95213ea49aa7a4abe0b127bfdbf4ac55fd29c7dfbe4ff50cdaa810bfc";
+        const nwcUrl = localStorage.getItem(NWC_STORAGE_KEY) || DEFAULT_NWC_URL;
+        document.getElementById("current-nwc-url").innerHTML =
+          nwcUrl + (nwcUrl === DEFAULT_NWC_URL ? " (default)" : "");
+        setNwcUrlOnComponents(nwcUrl);
+
+        // Prompt for NWC URL if not found
+        function promptForNwcUrl() {
+          const url = prompt(
+            "Enter connection string for sub-wallet with receive-only permissions (make_invoice, lookup_invoice, list_transactions)"
+          );
+          if (url) {
+            localStorage.setItem(NWC_STORAGE_KEY, url);
+          } else {
+            localStorage.removeItem(NWC_STORAGE_KEY);
+          }
+          window.location.reload();
+        }
+
+        document
+          .getElementById("set-nwc-url")
+          .addEventListener("click", promptForNwcUrl);
+      });
+    </script>
+  </body>
+</html>
