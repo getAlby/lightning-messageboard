@@ -14,7 +14,7 @@ The demo shows various themes and customization options for the Lightning Messag
 - 🎨 Customizable themes
 - 🔒 Secure receive-only connection to your wallet
 - 📱 Responsive design
-- 💬 Simple but effective messaging system
+- 💬 Simple but effective comments system for your website
 
 ## Installation
 
@@ -47,7 +47,7 @@ yarn add @getalby/lightning-messageboard
 
 ### Required
 
-- `nwc-url`: NWC connection secret of a **receive-only sub-wallet** for receiving Lightning Network payments.
+- `nwc-url`: NWC connection secret of a **sub-wallet with receive-only permissions (make_invoice, lookup_invoice, list_transactions)** for receiving Lightning Network payments.
 
 ### Optional
 
