@@ -16,15 +16,9 @@ The demo shows various themes and customization options for the Lightning Messag
 - 📱 Responsive design
 - 💬 Simple but effective comments system for your website
 
-## Installation
+## Usage
 
-### Yarn
-
-```bash
-yarn add @getalby/lightning-messageboard
-```
-
-### CDN
+Include the script:
 
 ```html
 <script
@@ -33,9 +27,7 @@ yarn add @getalby/lightning-messageboard
 ></script>
 ```
 
-## Usage
-
-### Basic Usage
+Then add the web component where you want it to be displayed:
 
 ```html
 <lightning-messageboard
@@ -77,16 +69,16 @@ cd lightning-messageboard
 yarn install
 ```
 
-Start the development server:
-
-```bash
-yarn dev
-```
-
 Build the project:
 
 ```bash
 yarn build
+```
+
+Start a HTTP server to view the demo page locally:
+
+```bash
+python3 -m http.server
 ```
 
 ## License
