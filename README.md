@@ -1,12 +1,16 @@
 # Lightning Messageboard
 
-A simple messageboard web component that allows visitors to pay bitcoin to post messages.
+A simple messageboard web component powered by [NWC](https://nwc.dev) that allows visitors to pay bitcoin to post messages.
 
 ## Demo
 
 👉 **[Try the Live Demo](https://getalby.github.io/lightning-messageboard/demo.html)**
 
 The demo shows various themes and customization options for the Lightning Messageboard component.
+
+## Screenshots
+
+![image](https://github.com/user-attachments/assets/e638b95a-f6ff-4595-8bc8-7d43ebe18b41)
 
 ## Features
 
@@ -15,6 +19,7 @@ The demo shows various themes and customization options for the Lightning Messag
 - 🔒 Secure receive-only connection to your wallet
 - 📱 Responsive design
 - 💬 Simple but effective comments system for your website
+- 🎮 Visitors can pay more to ensure their comment shows at the top of the message board
 
 ## Usage
 
