@@ -417,7 +417,7 @@ export class LightningMessageboard extends HTMLElement {
           <h3 class="card-title break-word">${escapeHTML(message.message)}</h3>
         </div>
         <div class="card-footer">
-          <span class="text-muted">by ${
+          <span class="text-muted text-sm">by ${
             message.name ? escapeHTML(message.name) : "Anonymous"
           }</span>
           <div>

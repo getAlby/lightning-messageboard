@@ -1,6 +1,6 @@
 {
   "name": "@getalby/lightning-messageboard",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A web component for a lightning messageboard powered by NWC",
   "type": "module",
   "main": "dist/index.js",
@@ -25,7 +25,7 @@
   "author": "Alby contributors",
   "license": "MIT",
   "dependencies": {
-    "@getalby/bitcoin-connect": "^3.7.0",
+    "@getalby/bitcoin-connect": "^3.7.1",
     "@getalby/sdk": "^4.1.1"
   },
   "devDependencies": {

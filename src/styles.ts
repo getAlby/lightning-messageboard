@@ -26,7 +26,7 @@ export const styles = `
 
 .card-header {
   padding: 1rem;
-  border-bottom: 1px solid var(--lmb-border-color);
+  /*border-bottom: 1px solid var(--lmb-border-color);*/
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -51,10 +51,10 @@ export const styles = `
 
 .card-footer {
   padding: 0.75rem 1rem;
-  border-top: 1px solid var(--lmb-border-color);
+  /*border-top: 1px solid var(--lmb-border-color);*/
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: end;
 }
 
 .button {
@@ -292,6 +292,10 @@ export const styles = `
 .grid {
   display: grid;
   gap: 1rem;
+}
+
+.text-sm {
+  font-size: 12px;
 }
 
 .text-muted {
