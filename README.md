@@ -10,7 +10,8 @@ The demo shows various themes and customization options for the Lightning Messag
 
 ## Screenshots
 
-![image](https://github.com/user-attachments/assets/e638b95a-f6ff-4595-8bc8-7d43ebe18b41)
+![image](https://github.com/user-attachments/assets/aa385860-1d99-4ce1-b946-7166bfde91f8)
+
 
 ## Features
 
